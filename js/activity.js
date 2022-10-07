@@ -3,6 +3,8 @@ const loaderDOM = document.getElementById("loader");
 const loadBtn = document.getElementById("load-more");
 const loadBtnText = loadBtn.innerText;
 
+let data_available = true;
+
 const getPageWithID = async (page, id) => {
   const token = localStorage.getItem("token");
   const config = {
@@ -20,6 +22,11 @@ const getPageWithID = async (page, id) => {
         toggleLoader(false);
         const data = res.data.data;
         data.forEach(insertOneRow);
+
+        if (data.length < 10) {
+          data_available = false;
+          loadBtn.disabled = true;
+        }
       } else {
         alert("HTTP-Error: " + res.status);
       }
@@ -75,11 +82,15 @@ const toggleLoader = (state) => {
 };
 
 loadBtn.addEventListener("click", async (e) => {
+  if (!data_available) return;
+
   loadBtn.disabled = true;
 
   loadBtn.innerHTML = "Loading";
   currentPage = currentPage + 1;
-  await getPageWithID(currentPage, "");
+
+  const id = inputDOM.value;
+  await getPageWithID(currentPage, id);
   loadBtn.innerHTML = loadBtnText;
 
   loadBtn.disabled = false;
@@ -103,4 +114,6 @@ formDOM.addEventListener("submit", (e) => {
   toggleLoader(true);
   const id = inputDOM.value;
   getPageWithID(0, id);
+  data_available = true;
+  loadBtn.disabled = false;
 });

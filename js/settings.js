@@ -41,11 +41,14 @@ formDOM.addEventListener("submit", async (e) => {
     .patch(`https://snoc-dashboard-api.herokuapp.com/api/v1/auth`, body, config)
     .then((res) => {
       const data = res.data;
-
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
       showAlert(true, "Changes updated successfully");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 200);
     })
     .catch((err) => {
       console.log(err);
