@@ -1,0 +1,78 @@
+.cards-list {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    overflow: hidden;
+    flex-grow: 1;
+    flex-basis: 15rem;
+}
+
+.bg-blur {
+    backdrop-filter: blur(5px);
+}
+
+.card-text {
+    white-space: pre;
+    font-size: 170%;
+    transition: 1s linear;
+}
+
+.card-text.long:hover {
+    transform: translate(-3rem);
+}
+
+.form-signin {
+    height: 100vh;
+    width: 100vw;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+#loader {
+    min-height: 300px
+}
+
+#total-cards #loader,
+#daily-cards #loader {
+    min-height: 0;
+}
+
+#total-cards #loader .lds-ellipsis div,
+#daily-cards #loader .lds-ellipsis div {
+    background: #ffffff79;
+}
+
+.basic {
+    display: block;
+    height: 50px;
+    width: 50px;
+    -webkit-animation: spin .7s infinite linear;
+    animation: spin .7s infinite linear;
+    border: 6px #e11d25 solid;
+    border-left-color: white;
+    border-top-color: white;
+    border-radius: 100%;
+}
+
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

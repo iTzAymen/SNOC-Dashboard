@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | SNOC Dashboard</title>
+    <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link rel="icon" href="./img/djeezy.svg" />
+    <script defer src="/js/auth.js"></script>
+    <script defer src="/js/init.js"></script>
+  </head>
+
+  <body class="bg-light">
+    <nav
+      class="bg-blur navbar navbar-expand-lg fixed-top navbar-dark bg-dark opacity-90"
+    >
+      <div class="container-xl py-2">
+        <img
+          class="d-block my-0"
+          src="img/djeezy.svg"
+          alt=""
+          height="75"
+          width="75"
+        />
+        <a class="navbar-brand h1 my-0 mx-auto d-none d-sm-block fs-2" href="#"
+          >SNOC DASHBOARD</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse h5 my-0" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html#overview-page"
+                >Statistics Overview</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="index.html#daily-page"
+                >Daily Statistics</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                id="account-toggle"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Account
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="settings.html">Settings</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="activity.html">Activity log</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" id="logout-btn" href="login.html"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div style="width: 100%; height: 6rem"></div>
+
+    <div class="container-lg">
+      <div
+        class="row g-4 d-flex flex-column p-sm-0 p-md-3 justify-content-center"
+      >
+        <div
+          id="activity-page"
+          class="h1 mt-5 mb-0 ps-4"
+          style="font-size: clamp(2.5rem, 4vw, 3.5rem)"
+        >
+          Activity log
+          <p class="h5 text-muted mb-0">
+            Preview the details of any activity coresponding the database
+          </p>
+        </div>
+        <a href="activity.html" class="btn btn-sm btn-outline-dark">Back</a>
+        <div class="card">
+          <div class="card-body">
+            <h2 id="transaction-title" class="h2">
+              Transaction #124688 - Details
+            </h2>
+            <div class="row">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Transaction ID</th>
+                    <td>124688</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Type</th>
+                    <td>Bill Payment</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">POS Code</th>
+                    <td>27010871</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Phone Number</th>
+                    <td>213770459936</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2G/3G</th>
+                    <td>4G</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Wilaya</th>
+                    <td>MOSTAGANEM</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">POS Name</th>
+                    <td>LIBRAIRIE FERRAOUN</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Event ID</th>
+                    <td>2002</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Status</th>
+                    <td>2012</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Description</th>
+                    <td>Completed</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Channel</th>
+                    <td>Mobile</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">QIFlag</th>
+                    <td>FALSEQI</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Creation Date</th>
+                    <td>2022-06-20 17:01:09.227</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Creation By</th>
+                    <td>27010871</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Last Modification Date</th>
+                    <td>2022-06-20 17:01:12.183</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Last Modification By</th>
+                    <td>27010871</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/uiHandler.js"></script>
+    <script src="./js/activity_detailed.js"></script>
+  </body>
+</html>

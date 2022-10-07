@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | SNOC Dashboard</title>
+    <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link rel="icon" href="./img/djeezy.svg" />
+    <script defer src="/js/auth.js"></script>
+    <script defer src="/js/init.js"></script>
+  </head>
+
+  <body class="bg-light">
+    <nav
+      class="bg-blur navbar navbar-expand-lg fixed-top navbar-dark bg-dark opacity-90"
+    >
+      <div class="container-xl py-2">
+        <img
+          class="d-block my-0"
+          src="img/djeezy.svg"
+          alt=""
+          height="75"
+          width="75"
+        />
+        <a class="navbar-brand h1 my-0 mx-auto d-none d-sm-block fs-2" href="#"
+          >SNOC DASHBOARD</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse h5 my-0" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html#overview-page"
+                >Statistics Overview</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="index.html#daily-page"
+                >Daily Statistics</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                id="account-toggle"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Account
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="settings.html">Settings</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="activity.html">Activity log</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" id="logout-btn" href="login.html"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div style="width: 100%; height: 6rem"></div>
+
+    <div class="container-lg">
+      <div
+        class="row g-4 d-flex flex-column p-sm-0 p-md-3 mt-1 mt-md-5 justify-content-center"
+      >
+        <div class="col-12 col-md-8 col-lg-6 align-self-center">
+          <div class="card">
+            <div class="card-body">
+              <div id="account-settings">
+                <form id="account-form">
+                  <h3 class="h3 m-2 text-center">Account Settings</h3>
+                  <div class="p-4 py-2">
+                    <h5 class="h5 mb-3">Account details</h5>
+                    <div class="input-group mb-3">
+                      <span
+                        class="input-group-text col-4 d-none d-sm-flex"
+                        id="basic-addon1"
+                        >_id</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="User id"
+                        id="id-input"
+                        placeholder="User id"
+                        aria-label="User id"
+                        aria-describedby="basic-addon1"
+                        readonly
+                        disabled
+                      />
+                    </div>
+                    <div class="input-group mb-3">
+                      <span
+                        class="input-group-text col-4 d-none d-sm-flex"
+                        id="basic-addon1"
+                        >Email</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="email"
+                        id="email-input"
+                        placeholder="Email"
+                        aria-label="Email"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
+                    </div>
+                    <hr />
+                    <h5 class="h5 mb-3">Change username</h5>
+                    <div class="input-group">
+                      <span
+                        class="input-group-text col-4 d-none d-sm-flex"
+                        id="basic-addon1"
+                        >Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username-input"
+                        placeholder="Username"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        autocomplete="username"
+                      />
+                    </div>
+                    <div class="form-text">Password is required.</div>
+                    <hr />
+                    <h5 class="h5 mb-3">Change password</h5>
+                    <div class="input-group mb-3">
+                      <span
+                        class="input-group-text col-4 d-none d-sm-flex"
+                        id="basic-addon1"
+                        >Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        placeholder="Password"
+                        aria-label="Password"
+                        aria-describedby="basic-addon1"
+                        autocomplete="new-password"
+                      />
+                    </div>
+                    <div class="input-group mb-3">
+                      <span
+                        class="input-group-text col-4 d-none d-sm-flex"
+                        id="basic-addon1"
+                        >New Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="new_password"
+                        placeholder="New Password"
+                        aria-label="Password"
+                        aria-describedby="basic-addon1"
+                        autocomplete="new-password"
+                      />
+                    </div>
+                    <div class="input-group mb-3">
+                      <span
+                        class="input-group-text col-4 d-none d-sm-flex"
+                        id="basic-addon1"
+                        >Confirm Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="confirm_password"
+                        placeholder="Confirm Password"
+                        aria-label="Password"
+                        aria-describedby="basic-addon1"
+                        autocomplete="new-password"
+                      />
+                    </div>
+                    <div class="alert alert-danger d-none py-2" role="alert">
+                      Something went wrong, try again
+                    </div>
+                    <div class="alert alert-success d-none py-2" role="alert">
+                      Updates changed successfully
+                    </div>
+                    <div class="alert alert-secondary d-none py-2" role="alert">
+                      Applying changes...
+                    </div>
+                    <div class="d-flex justify-content-end">
+                      <a
+                        href="index.html"
+                        class="btn btn-outline-secondary me-2 col-4 col-lg-3"
+                        >Cancel</a
+                      >
+                      <button
+                        type="submit"
+                        class="btn btn-primary me-2 col-4 col-lg-3"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-2 d-flex justify-content-center">
+            <a
+              id="#logout-btn"
+              class="btn btn-sm btn-outline-danger me-2 col-4 col-lg-3"
+              >Log out</a
+            >
+            <a
+              href="activity.html"
+              class="btn btn-sm btn-outline-dark me-2 col-4 col-lg-3"
+              >Activity log</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/uiHandler.js"></script>
+    <script src="./js/settings.js"></script>
+  </body>
+</html>
