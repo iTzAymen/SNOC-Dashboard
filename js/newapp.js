@@ -309,9 +309,6 @@ function displayCharts(container, monthlyData, offersData, cityData, daily) {
 
     monthlyData = monthlyData.filter((n) => n);
     labels = labels.filter((n) => n);
-
-    console.log(labels);
-    console.log(monthlyData);
   } else {
     const start_month = Number(Object.keys(monthlyData).at(0));
     const end_month = Number(Object.keys(monthlyData).at(-1)) + 1;
