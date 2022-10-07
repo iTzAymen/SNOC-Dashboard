@@ -5,6 +5,21 @@ const daily_cards = document.getElementById("daily-cards");
 const overview_charts = document.getElementById("overview-charts");
 const daily_charts = document.getElementById("daily-charts");
 
+const MONTHS_LABELS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const getMax = (arr) => {
   let max_id = "";
   let max = -1;
@@ -93,7 +108,7 @@ const displayOverviewCards = (data) => {
   const refused_countDOM = document.querySelector(
     "#overview-container #total-refused"
   );
-  refused_countDOM.textContent = refused_count[0].count;
+  refused_countDOM.textContent = refused_count[0] ? refused_count[0].count : 0;
 };
 
 const displayDailyCards = (data) => {
@@ -113,14 +128,14 @@ const displayDailyCards = (data) => {
   const refused_countDOM = document.querySelector(
     "#daily-container #total-refused"
   );
-  refused_countDOM.textContent = refused_count[0].count;
+  refused_countDOM.textContent = refused_count[0] ? refused_count[0].count : 0;
 };
 
 const displayOverviewGraphs = (data) => {
   const { transactions_count, offer_count, city_count } = data;
   const container = overview_charts;
 
-  let transactions_count_obj = {};
+  let transactions_count_obj = [];
   transactions_count.forEach((value) => {
     transactions_count_obj[value._id] = value.count;
   });
@@ -139,7 +154,8 @@ const displayOverviewGraphs = (data) => {
     container,
     transactions_count_obj,
     offer_count_obj,
-    city_count_obj
+    city_count_obj,
+    false
   );
 };
 
@@ -148,7 +164,7 @@ const displayDailyGraphs = (data) => {
   const container = daily_charts;
   destroyCharts(container);
 
-  let transactions_count_obj = {};
+  let transactions_count_obj = [];
   transactions_count.forEach((value) => {
     transactions_count_obj[value._id] = value.count;
   });
@@ -167,7 +183,8 @@ const displayDailyGraphs = (data) => {
     container,
     transactions_count_obj,
     offer_count_obj,
-    city_count_obj
+    city_count_obj,
+    true
   );
 };
 
@@ -273,7 +290,7 @@ function destroyCharts(container) {
   });
 }
 
-function displayCharts(container, monthlyData, offersData, cityData) {
+function displayCharts(container, monthlyData, offersData, cityData, daily) {
   const default_options = {
     responsive: true,
     plugins: {
@@ -282,8 +299,29 @@ function displayCharts(container, monthlyData, offersData, cityData) {
       },
     },
   };
+  let labels = [];
+  if (daily) {
+    labels = monthlyData.map((value, index) => {
+      const r = index % 12;
+      const d = Math.floor(index / 12);
+      return `${r} ${d === 0 ? "AM" : "PM"}`;
+    });
+
+    monthlyData = monthlyData.filter((n) => n);
+    labels = labels.filter((n) => n);
+
+    console.log(labels);
+    console.log(monthlyData);
+  } else {
+    const start_month = Number(Object.keys(monthlyData).at(0));
+    const end_month = Number(Object.keys(monthlyData).at(-1)) + 1;
+
+    labels = MONTHS_LABELS.slice(start_month, end_month);
+    monthlyData = monthlyData.slice(start_month, end_month);
+  }
 
   const monthly_data = {
+    labels: labels,
     datasets: [
       {
         label: "Transactions",
@@ -356,6 +394,9 @@ function displayCharts(container, monthlyData, offersData, cityData) {
         y: {
           beginAtZero: true,
         },
+        x: {
+          display: false,
+        },
       },
     },
   };
@@ -397,6 +438,9 @@ function displayCharts(container, monthlyData, offersData, cityData) {
       scales: {
         y: {
           beginAtZero: true,
+        },
+        x: {
+          display: false,
         },
       },
     },
