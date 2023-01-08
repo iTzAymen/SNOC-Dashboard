@@ -201,7 +201,7 @@ const updateOverviewSection = () => {
   const d = new Date();
   axios
     .get(
-      "https://snoc-dashboard-api.herokuapp.com/api/v1/transactions/overview",
+      "https://snoc-dashboard-api.onrender.com/api/v1/transactions/overview",
       config
     )
     .then((res) => {
@@ -224,7 +224,7 @@ const updateDailySection = (date) => {
   const d = new Date();
   axios
     .post(
-      "https://snoc-dashboard-api.herokuapp.com/api/v1/transactions/daily",
+      "https://snoc-dashboard-api.onrender.com/api/v1/transactions/daily",
       { date },
       config
     )
@@ -248,7 +248,7 @@ const validateDate = async (date) => {
   let data = { valid: false };
   await axios
     .post(
-      "https://snoc-dashboard-api.herokuapp.com/api/v1/transactions/validate",
+      "https://snoc-dashboard-api.onrender.com/api/v1/transactions/validate",
       { date },
       config
     )

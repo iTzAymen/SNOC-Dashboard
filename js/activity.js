@@ -2,6 +2,7 @@ const listparent = document.querySelector("tbody");
 const loaderDOM = document.getElementById("loader");
 const loadBtn = document.getElementById("load-more");
 const loadBtnText = loadBtn.innerText;
+const uri = "https://snoc-dashboard-api.onrender.com";
 
 let data_available = true;
 
@@ -14,7 +15,7 @@ const getPageWithID = async (page, id) => {
   };
   await axios
     .get(
-      `https://snoc-dashboard-api.herokuapp.com/api/v1/transactions/page/${page}?id=${id}`,
+      `https://snoc-dashboard-api.onrender.com/api/v1/transactions/page/${page}?id=${id}`,
       config
     )
     .then((res) => {

@@ -38,7 +38,7 @@ formDOM.addEventListener("submit", async (e) => {
   };
 
   await axios
-    .patch(`https://snoc-dashboard-api.herokuapp.com/api/v1/auth`, body, config)
+    .patch(`https://snoc-dashboard-api.onrender.com/api/v1/auth`, body, config)
     .then((res) => {
       const data = res.data;
       localStorage.setItem("token", data.token);
@@ -74,7 +74,7 @@ formDOM.addEventListener("submit", async (e) => {
 
   await axios
     .patch(
-      `https://snoc-dashboard-api.herokuapp.com/api/v1/auth/reset`,
+      `https://snoc-dashboard-api.onrender.com/api/v1/auth/reset`,
       body2,
       config
     )
